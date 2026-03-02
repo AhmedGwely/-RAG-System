@@ -17,3 +17,52 @@ The system allows users to upload a **PDF document**, index its contents into a 
 ---
 
 ## 🧱 Repository Structure
+
+# Project Repository Structure
+
+```
+rag-system/
+│
+├── src/
+│   ├── ingestion/
+│   │   ├── loader.py
+│   │   ├── splitter.py
+│   │   └── __init__.py
+│   │
+│   ├── embeddings/
+│   │   ├── embedder.py
+│   │   └── __init__.py
+│   │
+│   ├── vectorstore/
+│   │   ├── store.py
+│   │   └── __init__.py
+│   │
+│   ├── retrieval/
+│   │   ├── retriever.py
+│   │   └── __init__.py
+│   │
+│   ├── llm/
+│   │   ├── llm_chain.py
+│   │   └── __init__.py
+│    
+│  ├── app/
+│  │  ├── frontend.py # Gradio / Streamlit
+│  │  └── __init__.py
+│  
+├── config.py
+├── test_data/
+│    └─ sample.pdf
+├─ 1_page_summary.pdf
+├─ requirements.txt
+├─ README.md
+└─ main.py
+```
+
+## ⚙️ Installation
+
+### 1. Clone the repo
+```
+- git clone <repo-url>
+- cd rag-system
+```
+
