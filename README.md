@@ -21,41 +21,44 @@ The system allows users to upload a **PDF document**, index its contents into a 
 # Project Repository Structure
 
 ```
-rag-system/
+rag_project/
 │
-├── src/
-│   ├── ingestion/
-│   │   ├── loader.py
-│   │   ├── splitter.py
+├── README.md
+├── requirements.txt          # كل الباكيجات المطلوبة (langchain, gradio, VDB, LLM SDKs ...)
+├── setup.py                  # لو هنعمل installable package
+│
+├── test_data/                # PDFs للتجربة
+│   └── sample.pdf
+│
+├── rag_system/               # كل الكود الأساسي هنا
+│   ├── __init__.py
+│   ├── ingestion/            # لتحميل وفصل البيانات
+│   │   ├── loader.py         # قراءة PDF / txt
+│   │   └── splitter.py       # فصل النصوص لchunks
+│   │
+│   ├── embeddings/           # إنشاء الـembeddings
+│   │   ├── embedder.py       # wrapper للembedding model
 │   │   └── __init__.py
 │   │
-│   ├── embeddings/
-│   │   ├── embedder.py
+│   ├── vectorstore/          # الـVector DB
+│   │   ├── store.py          # CRUD operations مع الـVDB
 │   │   └── __init__.py
 │   │
-│   ├── vectorstore/
-│   │   ├── store.py
+│   ├── retrieval/            # RAG retriever
+│   │   ├── retriever.py      # retrieval logic
 │   │   └── __init__.py
 │   │
-│   ├── retrieval/
-│   │   ├── retriever.py
-│   │   └── __init__.py
-│   │
-│   ├── llm/
-│   │   ├── llm_chain.py
-│   │   └── __init__.py
-│    
-│  ├── app/
-│  │  ├── frontend.py # Gradio / Streamlit
-│  │  └── __init__.py
-│  
-├── config.py
-├── test_data/
-│    └─ sample.pdf
-├─ 1_page_summary.pdf
-├─ requirements.txt
-├─ README.md
-└─ main.py
+│   └── rag_chain/            # Chain + LLM
+│       ├── chain.py          # RAG pipeline logic
+│       └── __init__.py
+│
+├── frontend/                 # Gradio / أي واجهة
+│   ├── app.py
+│   └── __init__.py
+│
+└── utils/                    # أي أدوات مساعدة
+    ├── config.py             # إعدادات LLM / VDB
+    └── helpers.py
 ```
 
 ## ⚙️ Installation
