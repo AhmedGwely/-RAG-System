@@ -1,0 +1,6 @@
+langchain
+gradio
+PyPDF2
+faiss-cpu
+huggingface-hub
+transformers
